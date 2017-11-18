@@ -3,6 +3,7 @@ declare interface Blog {
     title2:string,
     body:string,
     imgSrc:string,
+    imgText:string,
     continueReadingLink:string//,
     //date:Date
 }

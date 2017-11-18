@@ -3,7 +3,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from './pages/pageNotFound/pageNotFound.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { AffiliateDisclosureComponent } from './pages/affiliateDisclosure/affiliateDisclosure.component';
-import { DevTalkBlogFeedComponent } from './pages/devTalkBlogFeed/devTalkBlogFeed.component';
+import { DevTalkBlogFeedComponent } from './pages/blogFeeds/devTalkBlogFeed/devTalkBlogFeed.component';
+import { HtGearBlogFeedComponent } from './pages/blogFeeds/htGearBlogFeed/htGearBlogFeed.component';
 
 
 export const routes: Routes = [
@@ -13,7 +14,11 @@ export const routes: Routes = [
     },
     {
         path:'devtalk',
-        component: DevTalkBlogFeedComponent
+        component: DevTalkBlogFeedComponent //TODO:child routes for each blog post
+    },
+    {
+        path:'gear',
+        component: HtGearBlogFeedComponent //TODO:child routes for each blog post
     },
     {
         path:'shop',
