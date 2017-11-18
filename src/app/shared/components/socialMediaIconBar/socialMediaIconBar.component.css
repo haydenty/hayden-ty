@@ -1,0 +1,55 @@
+/* wiggle code */
+@-ms-keyframes wiggle {
+    0% {
+        -ms-transform: rotate(6deg);
+    }
+    50% {
+        -ms-transform: rotate(-6deg);
+    }
+    100% {
+        -ms-transform: rotate(6deg);
+    }
+}
+@-moz-keyframes wiggle {
+    0% {
+        -moz-transform: rotate(6deg);
+    }
+    50% {
+        -moz-transform: rotate(-6deg);
+    }
+    100% {
+        -moz-transform: rotate(6deg);
+    }
+}
+@-webkit-keyframes wiggle {
+    0% {
+        -webkit-transform: rotate(6deg);
+    }
+    50% {
+        -webkit-transform: rotate(-6deg);
+    }
+    100% {
+        -webkit-transform: rotate(6deg);
+    }
+}
+@keyframes wiggle {
+    0% {
+        transform: rotate(6deg);
+        background: #eff1f4;
+    }
+    50% {
+        transform: rotate(-6deg);
+        background: #eff1f4;
+    }
+    100% {
+        transform: rotate(6deg);
+        background: #eff1f4;
+    }
+}
+
+a.wiggle-me {
+    -ms-animation: wiggle .3s 10;
+    -moz-animation: wiggle .3s 10;
+    -webkit-animation: wiggle .3s 10;
+    animation: wiggle .3s 10;
+}

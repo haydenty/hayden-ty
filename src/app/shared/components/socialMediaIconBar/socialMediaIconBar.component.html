@@ -1,0 +1,7 @@
+<ul class="nav nav-pills nav-fill">
+    <li class="nav-item" *ngFor="let ic of icons">
+        <a class="wiggle-me" target="_blank" href="{{ic.link}}" title="{{ic.title}}">
+            <span class="fa {{getClass(ic.plateform)}} fa-2x"></span>
+        </a>
+    </li>
+</ul>
