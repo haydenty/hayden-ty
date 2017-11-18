@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { InstagramFeedComponent } from './components/instagramFeed/instagramFeed.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { BlogFeedComponent } from './components/blogFeed/blogFeed.component';
+import { BlogService } from './services/blog.service';
 
 
 @NgModule({
@@ -15,14 +17,18 @@ import { HeaderComponent } from './components/header/header.component';
         SocialMediaIconBarComponent,
         InstagramFeedComponent,
         FooterComponent,
-        HeaderComponent
+        HeaderComponent,
+        BlogFeedComponent
     ],
     declarations: [
         SocialMediaIconBarComponent,
         InstagramFeedComponent,
         FooterComponent,
-        HeaderComponent
+        HeaderComponent,
+        BlogFeedComponent
     ],
-    providers: [],
+    providers: [
+        BlogService
+    ],
 })
 export class SharedModule { }

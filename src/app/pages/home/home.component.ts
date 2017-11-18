@@ -5,8 +5,7 @@ import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 @Component({
     selector: 'home-page',
     templateUrl: 'home.component.html',
-    providers:[NgbCarouselConfig],
-    styleUrls:['home.css']
+    providers:[NgbCarouselConfig]
 })
 
 export class HomeComponent{

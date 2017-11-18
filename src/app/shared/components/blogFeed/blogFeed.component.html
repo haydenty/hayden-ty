@@ -1,0 +1,17 @@
+<div class="container">
+    <div *ngFor="let blog of blogs; let i = index">
+        <div class="row featurette">
+            <div class="col-md-7" [ngClass]="{'order-md-2':i % 2 === 0}">
+                <h2 class="featurette-heading">{{blog.title1}}
+                    <span class="text-muted">{{blog.title2}}</span>
+                </h2>
+                <p class="lead">{{blog.body}}</p>
+                <button class="btn btn-default" (click)="continueReading(blog.continueReadingLink)">Continue Reading...</button>
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+            </div>
+        </div>
+        <hr class="featurette-divider">
+    </div>
+</div>

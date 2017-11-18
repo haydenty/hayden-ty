@@ -7,23 +7,28 @@ import { PageNotFoundComponent } from './pageNotFound/pageNotFound.component';
 import { ShopComponent } from './shop/shop.component';
 import { SharedModule } from '../shared/shared.module';
 import { AffiliateDisclosureComponent } from './affiliateDisclosure/affiliateDisclosure.component';
+import { DevTalkBlogFeedComponent } from './devTalkBlogFeed/devTalkBlogFeed.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     imports: [
         NgbModule,
-        SharedModule
+        SharedModule,
+        HttpClientModule
     ],
     exports: [
         HomeComponent,
         PageNotFoundComponent,
         ShopComponent,
-        AffiliateDisclosureComponent
+        AffiliateDisclosureComponent,
+        DevTalkBlogFeedComponent
     ],
     declarations: [
         HomeComponent,
         PageNotFoundComponent,
         ShopComponent,
-        AffiliateDisclosureComponent
+        AffiliateDisclosureComponent,
+        DevTalkBlogFeedComponent
     ],
     providers: [],
 })
