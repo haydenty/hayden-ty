@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CrudService } from '../../shared/services/crud.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'blog-edit-page',
@@ -19,7 +20,8 @@ export class BlogEditComponent implements OnInit {
         continueReadingLink:'',
         publishedDate: undefined
     };
-    constructor(private route: ActivatedRoute, private router:Router, private blogService: CrudService) { };
+    constructor(private route: ActivatedRoute, private router:Router, 
+        private toastr:ToastrService,private blogService: CrudService) { };
 
     ngOnInit() {
         this.route.params.subscribe((params) => {
@@ -29,7 +31,7 @@ export class BlogEditComponent implements OnInit {
                 this.blogService.read('blogPosts', id).subscribe((resp) => {
                     this.post = <Blog>resp[0];
                 }, (error) => {
-                    console.error("Toast burnt!");//TODO:add toastr                            
+                    this.toastr.error("Failed to load blog post!");                            
                 });
             }
         });
@@ -38,28 +40,29 @@ export class BlogEditComponent implements OnInit {
         if (this.isNewPost) {
             this.post.publishedDate = new Date();
             this.blogService.create('blogPosts', this.post).subscribe((resp) => {
-                console.error("Toast yum!");//TODO:add toastr    
+                this.toastr.success("Successfully saved blog post.");                                           
                 this.isNewPost = false;
-                this.post._id = resp._id;
-                //TODO:change the route                        
+                this.post._id = resp[0];
+                const newRoute = 'blogadmin/' + this.post._id;
+                this.router.navigate([newRoute]);           
             }, (error) => {
-                console.error("Toast burnt!");//TODO:add toastr                                            
+                this.toastr.error("Failed to save blog post!");                                           
             });
         }
         else {
             this.blogService.update('blogPosts', this.post._id, this.post).subscribe((resp) => {
-                console.error("Toast yum!");//TODO:add toastr                                            
+                this.toastr.success("Successfully updated blog post.");                                           
             }, (error) => {
-                console.error("Toast burnt!");//TODO:add toastr                                            
+                this.toastr.error("Failed to update blog post!");                                           
             });
         }
     }
     public deletePost(){
         this.blogService.delete('blogPosts', this.post._id).subscribe((resp) => {
-            console.error("Toast yum!");//TODO:add toastr
+            this.toastr.success("Successfully deleted blog post.");                                           
             this.router.navigateByUrl('/blogadmin');                                          
         }, (error) => {
-            console.error("Toast burnt!");//TODO:add toastr                                            
+            this.toastr.error("Failed to delete blog post!");                                           
         });
     }
 }

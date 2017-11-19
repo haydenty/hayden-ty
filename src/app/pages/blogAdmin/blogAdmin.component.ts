@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../shared/services/crud.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'blog-admin-page',
@@ -9,13 +10,13 @@ import { Router } from '@angular/router';
 
 export class BlogAdminComponent implements OnInit {
     posts:Blog[];
-    constructor(private crudService:CrudService, private router:Router) { }
+    constructor(private crudService:CrudService, private router:Router, private toastr:ToastrService) { }
 
     ngOnInit() { 
         this.crudService.readAll('blogPosts').subscribe((resp)=>{
             this.posts = resp;
         },(error)=>{
-            console.error("Toast burnt!");//TODO:add toastr            
+            this.toastr.error("Failed to retrieve blog posts!");          
         });
     }
     public createNewPost(){
@@ -26,14 +27,14 @@ export class BlogAdminComponent implements OnInit {
     };
     public deletePost(id:number){
         this.crudService.delete('blogPosts',id).subscribe((resp)=>{
-            console.log("Toast popped!");//TODO:add toastr
+            this.toastr.success('Successfully deleted blog post.');
             this.crudService.readAll('blogPosts').subscribe((resp)=>{
                 this.posts = resp;
             },(error)=>{
-                console.error("Toast burnt!");//TODO:add toastr            
+                this.toastr.error("Failed to retrieve blog posts!");                          
             });
         },(error)=>{
-            console.error("Toast burnt!");//TODO:add toastr
+            this.toastr.error("Failed to delete blog post!");                          
         });
     };
 }
