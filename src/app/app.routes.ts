@@ -7,16 +7,20 @@ import { HtGearBlogFeedComponent } from './pages/blogFeeds/htGearBlogFeed/htGear
 import { RedirectComponent } from './pages/redirect/redirect.component';
 import { BlogAdminComponent } from './pages/blogAdmin/blogAdmin.component';
 import { BlogEditComponent } from './pages/blogEdit/blogEdit.component';
+import { AuthGuard } from './shared/services/auth/auth-guard.service';
+import { CallbackComponent } from './shared/components/callback/callback.component';
 
 
 export const routes: Routes = [
     {
         path:'blogadmin',
-        component: BlogAdminComponent
+        component: BlogAdminComponent,
+        canActivate: [AuthGuard]
     },
     {
         path:'blogadmin/:id',
-        component: BlogEditComponent
+        component: BlogEditComponent,
+        canActivate: [AuthGuard]
     },
     {
         path:'affil',
@@ -43,6 +47,10 @@ export const routes: Routes = [
     {
         path: 'home',
         component: HomeComponent
+    },
+    {
+        path:'callback',
+        component: CallbackComponent
     },
     {
         path: '',

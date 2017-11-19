@@ -11,8 +11,8 @@
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">Creator</a>
+            <li *ngIf="auth0.isAuthenticated()" class="nav-item">
+                <a class="nav-link" href="blogadmin">Admin</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -24,7 +24,7 @@
                     <a class="dropdown-item" href="gear">HT Gear</a>                    
                     <a class="dropdown-item" href="shop">Shop</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="blogadmin">Admin</a>
+                    <a class="dropdown-item" href="">Specials</a>
                 </div>
             </li>
         </ul>
@@ -32,5 +32,8 @@
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form> -->
+        <!-- <profile-shared *ngIf="auth0.isAuthenticated()"></profile-shared> -->
+        <button class="btn" *ngIf="!auth0.isAuthenticated()" (click)="login()">Login</button>
+        <button class="btn" *ngIf="auth0.isAuthenticated()" (click)="logout()">Logout</button> 
     </div>
 </nav>
