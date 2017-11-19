@@ -1,0 +1,37 @@
+<div class="container" style="padding-top:1em">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="pull-left">All Posts</h2>
+            <button class="btn btn-primary pull-right" (click)="createNewPost()">New Post</button>
+        </div>
+    </div>
+    <hr class="featurette-divider-thin">
+    
+    <div class="row" *ngFor="let post of posts;let i = index">
+        <div class="col-md-2">
+            <img class="rounded" [src]="post.imgSrc" alt="{{post.imageText}}" style="width:100px;height:100px">
+        </div>
+        <div class="col-md-6">
+            <h3>{{post.title1}}</h3>
+            <h6>{{post.title2}}</h6>
+            <p class="text-truncate">{{post.body}}</p>
+        </div>
+        <div class="col-md-2">
+            <div class="btn-toolbar" role="toolbar" aria-label="post actions button group">
+                <div class="btn-group" role="group" aria-label="edit button group">
+                    <button type="button" class="btn btn-default" (click)="editPost(post._id)">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="btn-group" role="group" aria-label="delete button group">
+                    <button type="button" class="btn btn-default" (click)="deletePost(post._id)">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <p>Published: {{post.publishedDate | date:'shortDate'}}</p><!--TODO:make date format pipe 10.2.2017-->
+        </div>
+    </div>
+</div>

@@ -6,7 +6,7 @@ import { InstagramFeedComponent } from './components/instagramFeed/instagramFeed
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BlogFeedComponent } from './components/blogFeed/blogFeed.component';
-import { BlogService } from './services/blog.service';
+import { CrudService } from './services/crud.service';
 
 
 @NgModule({
@@ -28,7 +28,7 @@ import { BlogService } from './services/blog.service';
         BlogFeedComponent
     ],
     providers: [
-        BlogService
+        CrudService
     ],
 })
 export class SharedModule { }

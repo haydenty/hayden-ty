@@ -1,28 +1,44 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from './pages/pageNotFound/pageNotFound.component';
-import { ShopComponent } from './pages/shop/shop.component';
 import { AffiliateDisclosureComponent } from './pages/affiliateDisclosure/affiliateDisclosure.component';
 import { DevTalkBlogFeedComponent } from './pages/blogFeeds/devTalkBlogFeed/devTalkBlogFeed.component';
 import { HtGearBlogFeedComponent } from './pages/blogFeeds/htGearBlogFeed/htGearBlogFeed.component';
+import { RedirectComponent } from './pages/redirect/redirect.component';
+import { BlogAdminComponent } from './pages/blogAdmin/blogAdmin.component';
+import { BlogEditComponent } from './pages/blogEdit/blogEdit.component';
 
 
 export const routes: Routes = [
+    {
+        path:'blogadmin',
+        component: BlogAdminComponent
+    },
+    {
+        path:'blogadmin/:id',
+        component: BlogEditComponent
+    },
     {
         path:'affil',
         component: AffiliateDisclosureComponent
     },
     {
         path:'devtalk',
-        component: DevTalkBlogFeedComponent //TODO:child routes for each blog post
+        component: DevTalkBlogFeedComponent //TODO:child route for each blog post
     },
     {
         path:'gear',
-        component: HtGearBlogFeedComponent //TODO:child routes for each blog post
+        component: HtGearBlogFeedComponent //TODO:child route for each blog post
     },
     {
         path:'shop',
-        component: ShopComponent
+        component: RedirectComponent,
+        data: { redirectUrl:'https://haydenty1.wixsite.com/shop' }
+    },
+    {
+        path:'bitcoin',
+        component: RedirectComponent,
+        data: { redirectUrl:'https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.coinbase.com%2Fjoin%2F59f40aa3c308a500dc014da9&h=ATNnHUAxTeFrMIBRD77OHJpL97JEwwxpzE5ZQZFw90y3uVh4JWNGwZ3_rad9DaMex0GutL5Oky8UYloZQjku25PDkvrlURF689NnSXBHt8fcKHmuXj551ltoPx-uY4RSTgvPGCmP7es' }
     },
     {
         path: 'home',

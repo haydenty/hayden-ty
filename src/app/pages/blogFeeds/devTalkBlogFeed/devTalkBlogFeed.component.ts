@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogService } from '../../../shared/services/blog.service';
+import { CrudService } from '../../../shared/services/crud.service';
 
 @Component({
     selector: 'app-devtalk-blog-feed',
@@ -8,9 +8,9 @@ import { BlogService } from '../../../shared/services/blog.service';
 
 export class DevTalkBlogFeedComponent implements OnInit {
     blogs:Blog[];
-    constructor(private blogService:BlogService) { }
+    constructor(private blogService:CrudService) { }
 
     ngOnInit() { 
-        this.blogService.getBlogs().subscribe(resp=>this.blogs=resp);
+        this.blogService.readAll('blogPosts').subscribe(resp=>this.blogs=resp);
     }
 }

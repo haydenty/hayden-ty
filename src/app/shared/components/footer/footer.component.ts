@@ -7,5 +7,9 @@ import { SocialMediaIcon } from '../socialMediaIconBar/socialMediaIcon';
 })
 
 export class FooterComponent {
-    @Input() icons:SocialMediaIcon[];    
+    @Input() icons:SocialMediaIcon[];
+    currentPage:string;
+    constructor(){
+        this.currentPage = window.location.pathname.substr(1);
+    } 
 }

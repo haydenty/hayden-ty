@@ -1,0 +1,41 @@
+<div class="container" style="padding-top:1em">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="pull-left">{{isNewPost? 'New Post': 'Edit Post'}}</h2>
+        </div>
+    </div>
+    <hr class="featurette-divider-thin">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="title1">Title</label>
+                <input type="text" class="form-control" id="title1" placeholder="Best iPhone Case Ever" [(ngModel)]="post.title1">
+            </div>
+            <div class="form-group">
+                <label for="title2">Subtitle</label>
+                <input type="text" class="form-control" id="title2" placeholder="Tech" [(ngModel)]="post.title2">
+            </div>
+            <div class="form-group">
+                <label for="body">Body</label>
+                <textarea type="text" class="form-control" id="body" placeholder="Once upon a time there was an iPhone case that..." [(ngModel)]="post.body"
+                    rows="15"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="imgSrc">Img Src</label>
+                <input type="text" class="form-control" id="imgSrc" placeholder="assets/iphoneCase.jpg" [(ngModel)]="post.imgSrc">
+            </div>
+            <div class="form-group">
+                <label for="imgText">Img Text</label>
+                <input type="text" class="form-control" id="imgText" placeholder="iPhone Case" [(ngModel)]="post.imgText">
+            </div>
+            <div class="form-group">
+                <label for="cntRead">Continue Reading Link</label>
+                <input type="text" class="form-control" id="cntRead" placeholder="/iphoneCaseReview" [(ngModel)]="post.continueReadingLink">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary pull-right" (click)="savePost()">Save</button>
+                <button class="btn btn-danger pull-right" *ngIf="!isNewPost" (click)="deletePost()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
