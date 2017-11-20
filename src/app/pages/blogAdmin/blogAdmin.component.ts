@@ -16,7 +16,7 @@ export class BlogAdminComponent implements OnInit {
         this.crudService.readAll('blogPosts').subscribe((resp)=>{
             this.posts = resp;
         },(error)=>{
-            this.toastr.error("Failed to retrieve blog posts!");          
+            this.toastr.error(error,"Failed to retrieve blog posts!");          
         });
     }
     public createNewPost(){
@@ -31,10 +31,10 @@ export class BlogAdminComponent implements OnInit {
             this.crudService.readAll('blogPosts').subscribe((resp)=>{
                 this.posts = resp;
             },(error)=>{
-                this.toastr.error("Failed to retrieve blog posts!");                          
+                this.toastr.error(error,"Failed to retrieve blog posts!");                          
             });
         },(error)=>{
-            this.toastr.error("Failed to delete blog post!");                          
+            this.toastr.error(error,"Failed to delete blog post!");                          
         });
     };
 }
