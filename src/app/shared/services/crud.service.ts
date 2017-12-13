@@ -38,6 +38,7 @@ export class CrudService {
         }).catch(this.handleError);
     }
     private handleError(error: Error) {
+        console.log(error);
         return Observable.throw(error.message || 'Server error: ' + error);
     }
 }

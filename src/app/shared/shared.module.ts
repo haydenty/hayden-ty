@@ -13,6 +13,7 @@ import { CallbackComponent } from './components/callback/callback.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthHttpInterceptor } from './services/auth/auth-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BlogComponent } from './components/blog/blog.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
         HeaderComponent,
         BlogFeedComponent,
         CallbackComponent,
-        ProfileComponent
+        ProfileComponent,
+        BlogComponent
     ],
     declarations: [
         SocialMediaIconBarComponent,
@@ -35,7 +37,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
         HeaderComponent,
         BlogFeedComponent,
         CallbackComponent,
-        ProfileComponent
+        ProfileComponent,
+        BlogComponent
     ],
     providers: [
         AuthService,

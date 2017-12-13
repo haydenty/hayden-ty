@@ -14,7 +14,7 @@ export class DevTalkBlogFeedComponent implements OnInit {
     ngOnInit() {
         this.blogService.readAll('blogPosts').subscribe((resp) => { 
             this.blogs = resp; 
-            this.toastr.success(JSON.stringify(resp));
+            //this.toastr.success(JSON.stringify(resp));
         }, (error)=>{
             this.toastr.error(error, "Failed to retrieve blog posts!");
         });
