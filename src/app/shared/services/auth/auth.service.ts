@@ -11,7 +11,7 @@ export class AuthService {
     domain: 'haydenty.auth0.com',
     responseType: 'token id_token',
     audience: 'crud',//https://haydenty.auth0.com/userinfo',
-    redirectUri: 'http://localhost:4200/callback',
+    redirectUri: location.href.toLowerCase() + 'callback',//'http://localhost:4200/callback',
     scope: 'openid profile create:items'
   });
   userProfile:any;
