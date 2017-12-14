@@ -11,6 +11,7 @@ export class BlogComponent implements OnInit {
     ngOnInit() { }
     @Input() blog: Blog = {
         _id: -1,
+        belongsToBlogName: '',
         title1: 'The Main Title',
         title2: 'The Second Title',
         body: 'This is great...',

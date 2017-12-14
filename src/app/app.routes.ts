@@ -18,12 +18,17 @@ export const routes: Routes = [
         component: BlogComponent
     },
     {
-        path: 'blogadmin',
+        path: 'blogadmin/:belongsToBlogName',
         component: BlogAdminComponent,
         canActivate: [AuthGuard]
     },
     {
-        path: 'blogadmin/:id',
+        path: 'blogadmin', //TODO: figure out this and the above route
+        component: BlogAdminComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'blogadmin/:id/:belongsToBlogName',
         component: BlogEditComponent,
         canActivate: [AuthGuard]
     },

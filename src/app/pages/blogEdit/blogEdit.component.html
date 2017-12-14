@@ -2,13 +2,19 @@
     <div class="row">
         <div class="col-md-12">
             <h2 class="pull-left">
-                <a href="blogadmin"><i class="fa fa-chevron-circle-left" aria-hidden="true" style="color:#428BCA;"></i></a>
+                <a href="blogadmin/{{post.belongsToBlogName}}"><i class="fa fa-chevron-circle-left" aria-hidden="true" style="color:#428BCA;"></i></a>
                 {{isNewPost? 'New Post': 'Edit Post'}}</h2>
         </div>
     </div>
     <hr class="featurette-divider-thin">
     <div class="row">
         <div class="col-md-12">
+            <div class="form-group">
+                <label for="blogDropdown">Blog</label>
+                <select class="form-control" [(ngModel)]="post.belongsToBlogName">
+                    <option *ngFor="let b of blogNames" [value]="b.val">{{b.name}}</option>
+                </select>
+            </div>
             <div class="form-group">
                 <label for="title1">Title</label>
                 <input type="text" class="form-control" id="title1" placeholder="Best iPhone Case Ever" [(ngModel)]="post.title1">

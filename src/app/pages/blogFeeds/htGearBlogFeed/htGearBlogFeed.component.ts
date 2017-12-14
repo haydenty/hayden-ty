@@ -12,7 +12,7 @@ export class HtGearBlogFeedComponent implements OnInit {
     constructor(private blogService:CrudService,private toastr:ToastrService) { }
 
     ngOnInit() { 
-        this.blogService.readAll('blogPosts').subscribe((resp) => { 
+        this.blogService.readAll('blogPostsgear').subscribe((resp) => { 
             this.blogs = resp; 
             //this.toastr.success(JSON.stringify(resp));
         }, (error)=>{
