@@ -1,7 +1,7 @@
 declare const appConstants: {
         appName:string,
         crudApi: string,
-        blogNames:any[]
+        blogNames:any[] //TODO:type this
 }
 
 declare interface Blog {

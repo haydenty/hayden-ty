@@ -8,6 +8,7 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 
 export class HeaderComponent implements OnInit {
+    defaultBlogName:string = appConstants.blogNames[0].val;//TODO:fix this routing
     constructor(public auth0:AuthService){}  
     ngOnInit(): void {}
     public login():void{

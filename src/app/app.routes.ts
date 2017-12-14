@@ -28,7 +28,7 @@ export const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
-        path: 'blogadmin/:id/:belongsToBlogName',
+        path: 'blogadmin/:belongsToBlogName/:id',
         component: BlogEditComponent,
         canActivate: [AuthGuard]
     },

@@ -29,7 +29,7 @@ export class BlogEditComponent implements OnInit {
         this.route.params.subscribe((params) => {
             const id = params['id'];
             const belongsToBlogName = params['belongsToBlogName'];
-            if (id !== -1 && belongsToBlogName) {
+            if (id != -1 && belongsToBlogName) { //blog exists
                 this.isNewPost = false;
                 this.blogService.read('blogPosts' + belongsToBlogName, id).subscribe((resp) => {
                     this.post = <Blog>resp[0];
@@ -37,7 +37,7 @@ export class BlogEditComponent implements OnInit {
                     this.toastr.error(error,"Failed to load blog post!");                            
                 });
             }
-            if(belongsToBlogName !== '' && this.post.belongsToBlogName !== ''){
+            else{//is new blog //(belongsToBlogName && belongsToBlogName !== '' && this.post.belongsToBlogName === ''){
                 this.post.belongsToBlogName = belongsToBlogName;
             }
         });
@@ -49,7 +49,7 @@ export class BlogEditComponent implements OnInit {
                 this.toastr.success("Successfully saved blog post.");                                           
                 this.isNewPost = false;
                 this.post._id = resp[0];
-                const newRoute = 'blogadmin/' + this.post._id + '/' + this.post.belongsToBlogName;
+                const newRoute = 'blogadmin/' + this.post.belongsToBlogName + '/' + this.post._id;
                 this.router.navigate([newRoute]);           
             }, (error) => {
                 this.toastr.error(error,"Failed to save blog post!");                                           

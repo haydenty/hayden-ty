@@ -5,7 +5,6 @@
             <button class="btn btn-primary pull-right" (click)="createNewPost()">New Post</button>
             <div class="form-group">
                 <select class="form-control" [(ngModel)]="belongsToBlogName" (change)="belongsToBlogNameChanged()">
-                    <option value=''></option>
                     <option *ngFor="let b of blogNames" [value]="b.val">{{b.name}}</option>
                 </select>
             </div>
