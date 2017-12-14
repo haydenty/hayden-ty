@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import "rxjs/add/operator/catch";
+import "rxjs/add/observable/throw";
 import "rxjs/add/operator/map";
 
 
@@ -37,6 +38,7 @@ export class CrudService {
         }).catch(this.handleError);
     }
     private handleError(error: Error) {
+        console.log(error);
         return Observable.throw(error.message || 'Server error: ' + error);
     }
 }

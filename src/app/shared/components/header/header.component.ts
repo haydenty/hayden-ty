@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
     selector: '[shared-header]',
@@ -6,5 +7,13 @@ import { Component, Input } from '@angular/core';
     styleUrls:['header.component.scss']
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+    constructor(public auth0:AuthService){}  
+    ngOnInit(): void {}
+    public login():void{
+        this.auth0.login();
+    }
+    public logout():void{
+        this.auth0.logout();
+    }
 }

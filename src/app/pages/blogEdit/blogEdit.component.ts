@@ -31,7 +31,7 @@ export class BlogEditComponent implements OnInit {
                 this.blogService.read('blogPosts', id).subscribe((resp) => {
                     this.post = <Blog>resp[0];
                 }, (error) => {
-                    this.toastr.error("Failed to load blog post!");                            
+                    this.toastr.error(error,"Failed to load blog post!");                            
                 });
             }
         });
@@ -46,14 +46,14 @@ export class BlogEditComponent implements OnInit {
                 const newRoute = 'blogadmin/' + this.post._id;
                 this.router.navigate([newRoute]);           
             }, (error) => {
-                this.toastr.error("Failed to save blog post!");                                           
+                this.toastr.error(error,"Failed to save blog post!");                                           
             });
         }
         else {
             this.blogService.update('blogPosts', this.post._id, this.post).subscribe((resp) => {
                 this.toastr.success("Successfully updated blog post.");                                           
             }, (error) => {
-                this.toastr.error("Failed to update blog post!");                                           
+                this.toastr.error(error,"Failed to update blog post!");                                           
             });
         }
     }
@@ -62,7 +62,7 @@ export class BlogEditComponent implements OnInit {
             this.toastr.success("Successfully deleted blog post.");                                           
             this.router.navigateByUrl('/blogadmin');                                          
         }, (error) => {
-            this.toastr.error("Failed to delete blog post!");                                           
+            this.toastr.error(error,"Failed to delete blog post!");                                           
         });
     }
 }
