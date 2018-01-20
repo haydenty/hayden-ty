@@ -1,5 +1,5 @@
 # HaydenTy
-
+https://haydenty.github.io/hayden-ty/ Dated 1/20/18
 
 ## Getting Started
 1. Clone [crud-api](https://github.com/haydenty/crud-api) and setup accordingly (follow readme.md)
