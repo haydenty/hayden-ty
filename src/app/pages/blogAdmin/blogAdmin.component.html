@@ -1,12 +1,17 @@
 <div class="container" style="padding-top:1em">
     <div class="row">
         <div class="col-md-12">
-            <h2 class="pull-left">All Posts</h2>
+            <h2 class="pull-left">All Posts For:</h2>
             <button class="btn btn-primary pull-right" (click)="createNewPost()">New Post</button>
+            <div class="form-group">
+                <select class="form-control" [(ngModel)]="belongsToBlogName" (change)="belongsToBlogNameChanged()">
+                    <option *ngFor="let b of blogNames" [value]="b.val">{{b.name}}</option>
+                </select>
+            </div>
         </div>
     </div>
     <hr class="featurette-divider-thin">
-    
+
     <div class="row" *ngFor="let post of posts;let i = index">
         <div class="col-md-2">
             <img class="rounded" [src]="post.imgSrc" alt="{{post.imageText}}" style="width:100px;height:100px">

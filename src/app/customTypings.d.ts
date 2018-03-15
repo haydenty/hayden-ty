@@ -1,9 +1,12 @@
 declare const appConstants: {
         appName:string,
-        crudApi: string
+        crudApi: string,
+        blogNames:any[] //TODO:type this
 }
+
 declare interface Blog {
     _id:number,
+    belongsToBlogName:string,
     title1:string,
     title2:string,
     body:string,

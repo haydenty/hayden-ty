@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../shared/services/crud.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -9,32 +9,48 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class BlogAdminComponent implements OnInit {
-    posts:Blog[];
-    constructor(private crudService:CrudService, private router:Router, private toastr:ToastrService) { }
+    blogNames: any[] = appConstants.blogNames;
+    belongsToBlogName: string = this.blogNames[0].val;
+    posts: Blog[];
+    constructor(private crudService: CrudService, private route: ActivatedRoute, private router: Router, private toastr: ToastrService) { }
 
-    ngOnInit() { 
-        this.crudService.readAll('blogPosts').subscribe((resp)=>{
-            this.posts = resp;
-        },(error)=>{
-            this.toastr.error(error,"Failed to retrieve blog posts!");          
+    ngOnInit() {
+        this.route.params.subscribe((params) => {
+            const blogName = params['belongsToBlogName'];
+            if (blogName) {
+                this.belongsToBlogName = blogName;
+            }
+            this.crudService.readAll('blogPosts' + this.belongsToBlogName).subscribe((resp) => {
+                this.posts = resp;
+            }, (error) => {
+                this.toastr.error(error, "Failed to retrieve blog posts!");
+            });
         });
+
     }
-    public createNewPost(){
-        this.router.navigateByUrl(this.router.url + '/-1');        
+    public createNewPost() {
+        this.router.navigateByUrl(this.router.url + '/-1');
     }
-    public editPost(id:number){
+    public editPost(id: number) {
         this.router.navigateByUrl(this.router.url + '/' + id);
     };
-    public deletePost(id:number){
-        this.crudService.delete('blogPosts',id).subscribe((resp)=>{
+    public deletePost(id: number) {
+        this.crudService.delete('blogPosts' + this.belongsToBlogName, id).subscribe((resp) => {
             this.toastr.success('Successfully deleted blog post.');
-            this.crudService.readAll('blogPosts').subscribe((resp)=>{
+            this.crudService.readAll('blogPosts' + this.belongsToBlogName).subscribe((resp) => {
                 this.posts = resp;
-            },(error)=>{
-                this.toastr.error(error,"Failed to retrieve blog posts!");                          
+            }, (error) => {
+                this.toastr.error(error, "Failed to retrieve blog posts!");
             });
-        },(error)=>{
-            this.toastr.error(error,"Failed to delete blog post!");                          
+        }, (error) => {
+            this.toastr.error(error, "Failed to delete blog post!");
         });
     };
+    public belongsToBlogNameChanged() {
+        this.crudService.readAll('blogPosts' + this.belongsToBlogName).subscribe((resp) => {
+            this.posts = resp;
+        }, (error) => {
+            this.toastr.error(error, "Failed to retrieve blog posts!");
+        });
+    }
 }
