@@ -6,7 +6,7 @@ import { AuthService } from './auth.service';
 export class AuthHttpInterceptor implements HttpInterceptor{
     constructor(private auth0:AuthService){}
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if(!this.auth0.isAuthenticated()){
+        if(!this.auth0.isAuthenticated() && req.method !== 'GET'){ //sneaky way to only add for destructive routes
             return Observable.throw('User is not authenticated!');
         }
         else{
