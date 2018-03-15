@@ -13,11 +13,6 @@ const appConstants = {
     ]
 };
 
-// const appConstants = {
-//     appName:'haydenty',
-//     crudApi:'http://haydenty.com/api/'
-// };
-
-//TODO: for deployment to github pages set:
+//NOTE: for deployment to github pages set:
 //   <base href="https://haydenty.github.io/hayden-ty/">
 // in index.html
