@@ -11,7 +11,8 @@ export class BlogFeedComponent implements OnInit {
 
     ngOnInit() { }
     @Input() blogs:Blog[];
-    public continueReading(url){
+    public continueReading(blog){
+        const url = 'blog/' + blog.belongsToBlogName + '/' + blog._id;
         this.router.navigateByUrl(url);
     }
 }
