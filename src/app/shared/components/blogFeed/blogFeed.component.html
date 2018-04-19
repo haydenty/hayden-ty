@@ -6,7 +6,7 @@
                     <span class="text-muted">{{blog.title2}}</span>
                 </h2>
                 <p class="lead text-truncate">{{blog.body}}</p>
-                <button class="btn btn-default" (click)="continueReading(blog.continueReadingLink)">Continue Reading...</button>
+                <button class="btn btn-default" (click)="continueReading(blog)">Continue Reading...</button>
             </div>
             <div class="col-md-5">
                 <img class="featurette-image img-fluid mx-auto" [src]="blog.imgSrc" alt="{{blog.imgText}}">

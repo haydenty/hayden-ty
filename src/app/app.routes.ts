@@ -14,7 +14,7 @@ import { BlogComponent } from './shared/components/blog/blog.component';
 
 export const routes: Routes = [
     {
-        path: 'blog/:id',
+        path: 'blog/:belongsToBlogName/:id',
         component: BlogComponent
     },
     {
@@ -37,17 +37,17 @@ export const routes: Routes = [
         component: AffiliateDisclosureComponent
     },
     {
-        path: 'devtalk',
+        path: 'blog/dev',
         component: DevTalkBlogFeedComponent //TODO:child route for each blog post
     },
     {
-        path: 'gear',
+        path: 'blog/gear',
         component: HtGearBlogFeedComponent //TODO:child route for each blog post
     },
     {
         path: 'shop',
         component: RedirectComponent,
-        data: { redirectUrl: 'https://haydenty1.wixsite.com/shop' }
+        data: { redirectUrl: 'https://engineeringswagco.com' }
     },
     {
         path: 'bitcoin',

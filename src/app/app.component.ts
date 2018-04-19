@@ -46,7 +46,7 @@ export class AppComponent {
         isAnimated: false
     },
     {
-        link: 'https://haydenty1.wixsite.com/shop',
+        link: 'https://engineeringswagco.com',
         title: 'Shop my store!',
         plateform: 'shop',
         isAnimated: true
