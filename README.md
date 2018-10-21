@@ -1,3 +1,6 @@
+I enjoy updating my personal website as I learn new skills. My last version included multiple blogs with a built-in content management dashboard. Via the dashboard users could create, delete, and edit blog posts. To support this workflow, I built a RESTful API using Node.js and auth0 to secure it. Using role-based access control I allowed admins read and write access and subscribers read-only access. For my data store I used Mongo DB and for the user interface I used Angular. This project was a great way to put my skills to use.
+
+
 # HaydenTy
 https://haydenty.github.io/hayden-ty/ Dated 1/20/18
 
